@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-/*
+/**
 * Functional Component for congratulatory message
 @function
 @param {object} props - React props.
@@ -11,7 +11,7 @@ import PropTypes from 'prop-types';
 const Congrats = ({ success }) =>
 	success ? (
 		<div data-test='component-congrats'>
-			<span data-test='congrats-message'>
+			<span success='true' data-test='congrats-message'>
 				Congratulations, you guessed the word!
 			</span>
 		</div>

@@ -5,7 +5,10 @@ import EnzymeAdapter from 'enzyme-adapter-react-16';
 import Congrats from './Congrats';
 import { findByTestAttr, checkProps } from '../test/testUtils';
 
-/*
+/* In case of change of defaultProps value, test passes anyway beacuse of the setupProps variable. So it is important to check where defaultProps is used */
+const defaultProps = { success: false };
+
+/**
 Factory function to create a ShallowWrapper for the Congrats component
  * @function setup
  * @param {object} props - Component props specific to this setup
@@ -13,7 +16,8 @@ Factory function to create a ShallowWrapper for the Congrats component
  */
 
 const setup = (props = {}) => {
-	return shallow(<Congrats {...props} />);
+	const setupProps = { ...defaultProps, ...props };
+	return shallow(<Congrats {...setupProps} />);
 };
 
 Enzyme.configure({ adapter: new EnzymeAdapter() });
