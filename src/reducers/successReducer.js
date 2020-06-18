@@ -8,7 +8,7 @@ import { actionTypes } from '../actions/index';
  * @returns {boolean} - New success state
  */
 
-export default (state = false, action) => {
+const success = (state = false, action) => {
 	switch (action.type) {
 		case actionTypes.CORRECT_GUESS:
 			return true;
@@ -16,3 +16,5 @@ export default (state = false, action) => {
 			return state;
 	}
 };
+
+export default success;
