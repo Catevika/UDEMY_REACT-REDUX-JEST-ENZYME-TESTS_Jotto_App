@@ -10,7 +10,7 @@ import PropTypes from 'prop-types';
 
 const Congrats = ({ success }) =>
 	success ? (
-		<div data-test='component-congrats'>
+		<div data-test='component-congrats' className='alert alert-success'>
 			<span success='true' data-test='congrats-message'>
 				Congratulations, you guessed the word!
 			</span>
