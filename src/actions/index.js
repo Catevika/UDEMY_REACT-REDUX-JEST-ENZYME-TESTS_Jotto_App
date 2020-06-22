@@ -1,8 +1,10 @@
+import axios from 'axios';
 import { getLetterMatchCount } from '../helpers/index';
 
 export const actionTypes = {
 	CORRECT_GUESS: 'CORRECT_GUESS',
-	GUESS_WORD: 'GUESS_WORD'
+	GUESS_WORD: 'GUESS_WORD',
+	SET_SECRET_WORD: 'SET_SECRET_WORD'
 };
 
 /**
@@ -28,5 +30,21 @@ export const guessWord = (guessedWord) => {
 				type: actionTypes.CORRECT_GUESS
 			});
 		}
+	};
+};
+
+/**
+ * Returns Redux Thunk function that initiates an axios request
+ *    and dispatches the response as a 'SET_SECRET_WORD' action
+ * @returns {function} - Redux Thunk function.
+ */
+
+export const getSecretWord = () => {
+	return async (dispatch) => {
+		const response = await axios.get('http://localhost:3030');
+		dispatch({
+			type: actionTypes.SET_SECRET_WORD,
+			payload: response.data
+		});
 	};
 };
