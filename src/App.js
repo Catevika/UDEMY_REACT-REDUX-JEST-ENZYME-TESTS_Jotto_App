@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import Congrats from './Congrats';
-import Input from './Input';
+import { UnconnectedInput } from './Input';
 import GuessedWords from './GuessedWords';
 import { getSecretWord } from './actions/index';
 
@@ -22,7 +22,7 @@ export class UnconnectedApp extends Component {
 			<div className='container'>
 				<h1>Jotto</h1>
 				<Congrats success={this.props.success} />
-				<Input />
+				<UnconnectedInput />
 				<GuessedWords guessedWords={this.props.guessedWords} />
 			</div>
 		);
